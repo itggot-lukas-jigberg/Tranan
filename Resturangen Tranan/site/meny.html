@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script language="JavaScript1.1">
+        var slideimages=new Array()
+        var slidelinks=new Array()
+        function slideshowimages(){
+        for (i=0;i<slideshowimages.arguments.length;i++){
+        slideimages[i]=new Image()
+        slideimages[i].src=slideshowimages.arguments[i]
+        }
+        }
+
+        function slideshowlinks(){
+        for (i=0;i<slideshowlinks.arguments.length;i++)
+        slidelinks[i]=slideshowlinks.arguments[i]
+        }
+
+        function gotoshow(){
+        if (!window.winslide||winslide.closed)
+        winslide=window.open(slidelinks[whichlink])
+        else
+        winslide.location=slidelinks[whichlink]
+        winslide.focus()
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Tranan Meny</title>
+    <link rel="stylesheet" href="./css/style.css" type="text/css"/>
+    <link href='https://fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div class="directory">
+    <div class="logo">
+        <a href="index.html"><img src="./img/trana_svartvit.png"/></a>
+    </div>
+    <p id="headline">Tranan</p>
+    <div id="content">
+        <nav class="menytabobject">
+            <span><a href="index.html"><img id="homebutton" src="../original%20files/home153.svg"/></a></span>
+            <ul>
+                <li id="meny">Meny</a></li>
+                <li><a href="bokning.html">Bokning</a></li>
+                <li><a href="plats.html">Plats</a></li>
+                <li><a href="information.html">Information</a></li>
+            </ul>
+        </nav>
+        <article id="script">
+            <img src="food1.jpg" name="slide" class="picture"></a>
+            <script>
+                slideshowimages("./img/lasagna.jpg","./img/pasta.jpg","./img/pizza.jpg","./img/beef.jpg","./img/sallad.jpg")
+                var slideshowspeed=2000
+
+                var whichlink=0
+                var whichimage=0
+                function slideit(){
+                    if (!document.images)
+                        return
+                    document.images.slide.src=slideimages[whichimage].src
+                    whichlink=whichimage
+                    if (whichimage<slideimages.length-1)
+                        whichimage++
+                    else
+                        whichimage=0
+                    setTimeout("slideit()",slideshowspeed)
+                }
+                slideit()
+
+            </script>
+        </article>
+        <footer>
+            <div class="copyright"><span class="landscape-only">Copyright</span> © 2K16 Resturangen Tranan™</div>
+            <div class="social">
+                <div class="icon facebook">
+                    <a href="http://giphy.com/gifs/mrw-confusedtravolta-groceries-14fs128vvqge3e/fullscreen">
+                </div>
+                <div class="icon twitter">
+                    <a href="http://giphy.com/gifs/mrw-confusedtravolta-groceries-14fs128vvqge3e/fullscreen">
+                </div>
+                <div class="icon vimeo">
+                    <a href="http://giphy.com/gifs/mrw-confusedtravolta-groceries-14fs128vvqge3e/fullscreen">
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+
+
+</html>
